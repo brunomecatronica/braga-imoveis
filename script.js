@@ -99,27 +99,55 @@ ${data.mensagem}`;
     });
 }
 
-// Animação ao scroll
+// Animação ao scroll - Scroll Reveal
 const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    threshold: 0.15,
+    rootMargin: '0px 0px -100px 0px'
 };
 
-const observer = new IntersectionObserver((entries) => {
+const scrollObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            entry.target.classList.add('active');
         }
     });
 }, observerOptions);
 
-// Observar cards de imóveis
-document.querySelectorAll('.imovel-card').forEach(card => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(20px)';
-    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(card);
+// Observar todos os elementos que devem ser revelados
+document.querySelectorAll('.imovel-card, .valor-card, .info-card, .depoimento-card, .section-title, .sobre-text, .sobre-image').forEach(el => {
+    el.classList.add('reveal');
+    scrollObserver.observe(el);
+});
+
+// Adicionar delay escalonado para cards
+document.querySelectorAll('.imovel-card').forEach((card, index) => {
+    card.style.transitionDelay = `${index * 0.1}s`;
+});
+
+document.querySelectorAll('.valor-card').forEach((card, index) => {
+    card.style.transitionDelay = `${index * 0.1}s`;
+});
+
+document.querySelectorAll('.depoimento-card').forEach((card, index) => {
+    card.style.transitionDelay = `${index * 0.15}s`;
+});
+
+// Header com fundo sólido ao scroll
+let lastScroll = 0;
+const header = document.querySelector('.header');
+
+window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+    
+    if (currentScroll > 100) {
+        header.style.background = 'rgba(255, 255, 255, 0.98)';
+        header.style.boxShadow = '0 5px 30px rgba(0, 0, 0, 0.15)';
+    } else {
+        header.style.background = 'rgba(255, 255, 255, 0.95)';
+        header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.08)';
+    }
+    
+    lastScroll = currentScroll;
 });
 
 // Máscara para telefone
