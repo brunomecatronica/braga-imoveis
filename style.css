@@ -58,8 +58,15 @@ body {
 
 .header .container {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    gap: 1rem;
+    position: relative;
+}
+
+.logo {
+    text-align: center;
 }
 
 .logo img {
@@ -126,6 +133,10 @@ body {
     padding: 10px;
     border-radius: 8px;
     transition: background 0.3s ease;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .menu-toggle:hover {
