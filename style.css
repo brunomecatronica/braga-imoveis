@@ -58,19 +58,21 @@ body {
 
 .header .container {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
-    gap: 1rem;
     position: relative;
+    min-height: 100px;
 }
 
 .logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     text-align: center;
 }
 
 .logo img {
-    height: 150px;
+    height: 180px;
     width: auto;
     transition: transform 0.3s ease;
 }
@@ -1092,30 +1094,44 @@ body {
 
 /* Responsive */
 @media (max-width: 768px) {
+    .header .container {
+        flex-direction: column;
+        justify-content: center;
+        min-height: auto;
+        padding: 1rem 20px;
+    }
+
+    .logo {
+        position: static;
+        transform: none;
+        margin-bottom: 1rem;
+    }
+
+    .logo img {
+        height: 180px;
+    }
+
     .menu-toggle {
         display: flex;
     }
 
     .nav {
         display: none;
+        width: 100%;
     }
 
     .nav.active {
         display: block;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(10px);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        padding: 2rem;
-        border-radius: 0 0 20px 20px;
+        position: relative;
+        background: transparent;
+        box-shadow: none;
+        padding: 0;
     }
 
     .nav.active ul {
         flex-direction: column;
         gap: 1.5rem;
+        text-align: center;
     }
 
     .hero-content h1 {
@@ -1146,10 +1162,6 @@ body {
 
     .cta-section h2 {
         font-size: 2rem;
-    }
-
-    .logo img {
-        height: 100px;
     }
 
     .whatsapp-float {
