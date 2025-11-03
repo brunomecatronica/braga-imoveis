@@ -48,7 +48,7 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000;
-    padding: 1rem 0;
+    padding: 1.5rem 0;
     transition: all 0.3s ease;
 }
 
@@ -61,14 +61,16 @@ body {
     justify-content: flex-end;
     align-items: center;
     position: relative;
-    min-height: 100px;
+    min-height: 200px;
 }
 
 .logo {
     position: absolute;
     left: 50%;
-    transform: translateX(-50%);
+    top: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
+    z-index: 10;
 }
 
 .logo img {
@@ -1094,17 +1096,27 @@ body {
 
 /* Responsive */
 @media (max-width: 768px) {
+    .header {
+        padding: 1rem 0;
+    }
+
     .header .container {
         flex-direction: column;
         justify-content: center;
+        align-items: center;
         min-height: auto;
-        padding: 1rem 20px;
+        padding: 1rem 0;
     }
 
     .logo {
-        position: static;
+        position: relative;
+        left: 0;
+        top: 0;
         transform: none;
         margin-bottom: 1rem;
+        width: 100%;
+        display: flex;
+        justify-content: center;
     }
 
     .logo img {
@@ -1113,6 +1125,9 @@ body {
 
     .menu-toggle {
         display: flex;
+        position: absolute;
+        right: 20px;
+        top: 20px;
     }
 
     .nav {
@@ -1125,13 +1140,15 @@ body {
         position: relative;
         background: transparent;
         box-shadow: none;
-        padding: 0;
+        padding: 1rem 0 0 0;
+        width: 100%;
     }
 
     .nav.active ul {
         flex-direction: column;
         gap: 1.5rem;
         text-align: center;
+        width: 100%;
     }
 
     .hero-content h1 {
