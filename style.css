@@ -1177,7 +1177,48 @@ body {
     .sobre-grid,
     .contato-grid {
         grid-template-columns: 1fr;
-        gap: 2.5rem;
+        gap: 2rem;
+        width: 100%;
+    }
+
+    .contato-section {
+        padding: 80px 10px;
+        width: 100%;
+    }
+
+    .info-card {
+        width: 100%;
+        padding: 1.2rem;
+        box-sizing: border-box;
+        margin-bottom: 1.5rem;
+    }
+
+    .info-text p {
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .contato-form {
+        width: 100%;
+        padding: 1.5rem;
+        box-sizing: border-box;
+    }
+
+    .contato-form h2 {
+        font-size: 1.8rem;
+    }
+
+    .form-group {
+        width: 100%;
+        margin-bottom: 1.5rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        padding: 12px;
+        box-sizing: border-box;
     }
 
     .page-header h1 {
