@@ -893,6 +893,23 @@ body {
     line-height: 1.6;
 }
 
+.info-text p.subtitle {
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    font-style: italic;
+    margin-top: 0.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.info-text p.email,
+.footer-section p.email {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    display: inline-block;
+}
+
 .info-text a {
     color: var(--accent-color);
     text-decoration: none;
@@ -1032,6 +1049,14 @@ body {
     color: #a0aec0;
     margin-bottom: 0.75rem;
     line-height: 1.7;
+}
+
+.footer-section p.subtitle {
+    font-size: 0.85rem;
+    color: var(--accent-color);
+    font-style: italic;
+    margin-top: -0.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .footer-section p svg {
