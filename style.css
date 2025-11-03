@@ -427,7 +427,13 @@ body {
     font-size: 0.95rem;
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 8px;
+}
+
+.localizacao .logo-mini {
+    height: 40px;
+    width: auto;
+    flex-shrink: 0;
 }
 
 .detalhes {
@@ -1097,6 +1103,7 @@ body {
 @media (max-width: 768px) {
     .header {
         padding: 1rem 0;
+        position: relative !important;
     }
 
     .header .container {
@@ -1105,6 +1112,7 @@ body {
         align-items: center;
         min-height: auto;
         padding: 1rem 0;
+        position: relative;
     }
 
     .logo {
