@@ -1,11 +1,38 @@
-// Menu Toggle para Mobile
+// Menu Toggle para Mobile - Resposta Imediata
 const menuToggle = document.getElementById('menuToggle');
 const nav = document.querySelector('.nav');
+let isMenuOpen = false;
 
 if (menuToggle) {
-    menuToggle.addEventListener('click', () => {
-        nav.classList.toggle('active');
-    });
+    // Usar múltiplos tipos de eventos para garantir resposta imediata
+    const toggleMenu = (e) => {
+        if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        
+        isMenuOpen = !isMenuOpen;
+        
+        if (isMenuOpen) {
+            nav.classList.add('active');
+            menuToggle.classList.add('active');
+        } else {
+            nav.classList.remove('active');
+            menuToggle.classList.remove('active');
+        }
+    };
+    
+    // Adicionar múltiplos event listeners para garantir resposta
+    menuToggle.addEventListener('click', toggleMenu, { passive: false });
+    menuToggle.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        toggleMenu(e);
+    }, { passive: false });
+    
+    // Garantir que o elemento está pronto para interação
+    menuToggle.style.pointerEvents = 'auto';
+    menuToggle.style.cursor = 'pointer';
+    menuToggle.style.userSelect = 'none';
 }
 
 // Fechar menu ao clicar em um link
@@ -13,7 +40,24 @@ const navLinks = document.querySelectorAll('.nav a');
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
         nav.classList.remove('active');
+        if (menuToggle) {
+            menuToggle.classList.remove('active');
+            isMenuOpen = false;
+        }
     });
+});
+
+// Fechar menu ao clicar fora dele
+document.addEventListener('click', (e) => {
+    if (nav && nav.classList.contains('active')) {
+        if (!nav.contains(e.target) && !menuToggle.contains(e.target)) {
+            nav.classList.remove('active');
+            if (menuToggle) {
+                menuToggle.classList.remove('active');
+                isMenuOpen = false;
+            }
+        }
+    }
 });
 
 // Smooth Scroll para links internos
