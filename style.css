@@ -1179,44 +1179,91 @@ body {
         grid-template-columns: 1fr;
         gap: 2rem;
         width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
     }
 
     .contato-section {
         padding: 80px 10px;
         width: 100%;
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
+
+    .contato-section .container {
+        padding: 0 10px;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .contato-info {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
     }
 
     .info-card {
         width: 100%;
-        padding: 1.2rem;
+        max-width: 100%;
+        padding: 1rem;
         box-sizing: border-box;
         margin-bottom: 1.5rem;
+        overflow: hidden;
     }
 
+    .info-icon {
+        min-width: 40px;
+        flex-shrink: 0;
+    }
+
+    .info-text {
+        flex: 1;
+        min-width: 0;
+        overflow: hidden;
+    }
+
+    .info-text h3,
     .info-text p {
         word-break: break-word;
         overflow-wrap: break-word;
+        max-width: 100%;
+    }
+
+    .info-text a {
+        word-break: break-all;
     }
 
     .contato-form {
         width: 100%;
-        padding: 1.5rem;
+        max-width: 100%;
+        padding: 1.2rem;
         box-sizing: border-box;
+        overflow: hidden;
     }
 
     .contato-form h2 {
         font-size: 1.8rem;
+        word-break: break-word;
     }
 
     .form-group {
         width: 100%;
+        max-width: 100%;
         margin-bottom: 1.5rem;
+        box-sizing: border-box;
+    }
+
+    .form-group label {
+        display: block;
+        width: 100%;
+        max-width: 100%;
     }
 
     .form-group input,
     .form-group select,
     .form-group textarea {
         width: 100%;
+        max-width: 100%;
         padding: 12px;
         box-sizing: border-box;
     }
